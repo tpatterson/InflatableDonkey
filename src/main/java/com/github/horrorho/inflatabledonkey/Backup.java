@@ -151,7 +151,7 @@ public final class Backup {
                 .map(Date::toInstant)
                 .orElse(snapshot.modification());
         LocalDateTime ldt = LocalDateTime.ofInstant(timestamp, ZoneId.of("UTC"));
-        String date = DateTimeFormatter.BASIC_ISO_DATE.format(ldt);
+        String date = DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(ldt);
 
         return Paths.get(device.deviceID().hash().toUpperCase(Locale.US)).resolve(date);
     }
